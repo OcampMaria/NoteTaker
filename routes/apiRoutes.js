@@ -16,14 +16,27 @@ module.exports = function (app) {
     app.post("/api/notes", function(req, res) {
         readFileasync("./db/db.json", "utf8").then(data =>{
             console.log(data, "push");
-
             const newNote = {
                 title:req.body.title,
-                text:req.body.name
+                text:req.body.text
             };
-            res.json(newNote)
-            data.push(newNote);
-            res.send(newNote);
+
+            var stringedData = JSON.parse(data)
+            console.log(stringedData);
+            stringedData.push(newNote)
+            console.log(stringedData, "stringData")
+           
+
+            fs.writeFile("db.json", data, (err) => { 
+                if (err) 
+                  console.log(err); 
+                else { 
+                  console.log("File written successfully\n"); 
+                  console.log(fs.readFileSync("db.json", "utf8")); 
+                } 
+              });
+          
+          
         })
         
     });
