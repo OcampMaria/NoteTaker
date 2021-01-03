@@ -23,6 +23,7 @@ module.exports = function (app) {
 
             var stringedData = JSON.parse(data)
             console.log(stringedData);
+            
             stringedData.push(newNote)
             console.log(stringedData, "stringData")
            
