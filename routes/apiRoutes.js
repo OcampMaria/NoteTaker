@@ -23,12 +23,12 @@ module.exports = function (app) {
 
             var stringedData = JSON.parse(data)
             console.log(stringedData);
-            
+
             stringedData.push(newNote)
             console.log(stringedData, "stringData")
            
 
-            fs.writeFile("db.json", data, (err) => { 
+            fs.writeFile("./db/db.json", JSON.stringify(stringedData), (err) => { 
                 if (err) 
                   console.log(err); 
                 else { 
