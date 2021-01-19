@@ -1,5 +1,5 @@
 # NoteTakerApp
-
+![](./public/NotesApp.jpg)
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
