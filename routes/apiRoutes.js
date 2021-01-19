@@ -48,16 +48,13 @@ module.exports = function (app) {
         
   });
 
-  //geting Notes
-  // app.get("/api/notes/:id", (req,res)=> {
-  //   res.send(notes[req.params.id]);
-  // })
-   
+
   app.delete("/api/notes/:id", function(req,res){
     // receive query parameter containing the id of a note to delete
     //readl all noted from db.jsonfile, remove the note with given id and rewrite the notes to the db.json
     readFileasync("./db/db.json", "utf8").then(data =>{
       var stringedData = JSON.parse(data)
+
       stringedData.forEach(notes => {
         console.log(notes.id, "notes.id");
       });
